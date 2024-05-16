@@ -1,3 +1,6 @@
+#requires -Version 7.2
+#requires -Modules @{ModuleName = 'Az.Resources'; ModuleVersion = '6.1.0' }
+
 param(
     [Switch]$FetchRoles,
     [Switch]$ActivateRoles,
