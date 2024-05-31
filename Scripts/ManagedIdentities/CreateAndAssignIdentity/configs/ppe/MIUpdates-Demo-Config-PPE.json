@@ -1,0 +1,112 @@
+{
+  "managedIdentity": {
+    "name": "DummyIdentity",
+    "resourceGroup": "DummyResourceGroup"
+  },
+  "appList": [
+    {
+      "name": "DummyAppName",
+      "resourceGroup": "DummyResourceGroup",
+      "updateSlots": true
+    }
+  ],
+  "resources": [
+    {
+      "type": "Microsoft.ServiceBus/namespaces/topics",
+      "instances": [
+        {
+          "name": "DummyServiceBus/acprimary",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Azure Service Bus Data Sender"
+        }
+      ]
+    },
+    {
+      "type": "microsoft.AppConfiguration/configurationStores",
+      "instances": [
+        {
+          "name": "DummyPlatformConfig",
+          "role": "App Configuration Data Reader",
+          "resourceGroup": "DummyResourceGroup"
+        },
+        {
+          "name": "DummyConsumerConfig",
+          "role": "App Configuration Data Reader",
+          "resourceGroup": "DummyResourceGroup"
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "instances": [
+        {
+          "name": "DummyPlatformVault",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Key Vault Secrets User",
+          "useAccessPolicy": true,
+          "permissions": {
+            "secrets": ["get", "list"]
+          }
+        },
+        {
+          "name": "DummyTestVault",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Key Vault Secrets User",
+          "useAccessPolicy": true,
+          "permissions": {
+            "secrets": ["get", "list", "Set", "Delete"]
+          }
+        },
+        {
+          "name": "DummyConsumerVault",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Key Vault Secrets User",
+          "useAccessPolicy": true,
+          "permissions": {
+            "secrets": ["get", "list", "Set", "Delete"]
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "instances": [
+        {
+          "name": "DummyDeliveryStorage",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Storage Blob Data Contributor"
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.ServiceBus/namespaces",
+      "instances": [
+        {
+          "name": "DummyServiceBus",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Azure Service Bus Data Sender"
+        }
+      ]
+    },
+    {
+      "type": "microsoft.DocumentDb/databaseAccounts",
+      "instances": [
+        {
+          "name": "DummyDataPublisherLoadTest",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Cosmos DB Built-in Data Contributor"
+        }
+      ]
+    },
+    {
+      "type": "microsoft.DocumentDb/databaseAccounts",
+      "instances": [
+        {
+          "name": "DummyTableTest",
+          "resourceGroup": "DummyResourceGroup",
+          "role": "Storage Table Data Contributor"
+        }
+      ]
+    }
+  ]
+}
