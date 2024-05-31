@@ -1,0 +1,31 @@
+{
+  "appList": [
+    {
+      "name": "DummyAppName1",
+      "resourceGroup": "DummyResourceGroup1",
+      "switchToUserAssignedIdentity": false,
+      "updateSlots": false,
+      "updateAdditionalSettings": false,
+      "skipProdSlotUpdate": false,
+      "additionalSettings": {
+        "PlatformAppConfigEndpoint": "https://dummyendpoint1.azconfig.io",
+        "ConsumerAppConfigEndpoint": "https://dummyendpoint2.azconfig.io",
+        "NewTestSetting": "DummyTestValue1",
+        "ServiceBusConnection__clientId": "__UAMI__"
+      }
+    },
+    {
+      "name": "DummyAppName2",
+      "resourceGroup": "DummyResourceGroup2",
+      "switchToUserAssignedIdentity": false,
+      "updateSlots": false,
+      "managedIdentityName": "DummyIdentityName",
+      "updateAdditionalSettings": false,
+      "additionalSettings": {
+        "PlatformAppConfigEndpoint": "https://dummyendpoint3.azconfig.io",
+        "ConsumerAppConfigEndpoint": "https://dummyendpoint4.azconfig.io",
+        "NewTestSetting": "DummyTestValue2"
+      }
+    }
+  ]
+}
