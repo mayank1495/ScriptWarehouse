@@ -1,4 +1,4 @@
-# Manage-OldPRs.ps1
+# Manage-OldPRs-ADO.ps1
 
 Automated **house-keeping for Azure DevOps pull-requests**.  
 The script lets you **review** or **abandon** every *active* PR that’s older than a configurable number of days, across one or many repositories.  
@@ -50,12 +50,12 @@ Results are exported to CSV, and live progress bars keep you informed during lon
 
 ```powershell
 # List all PRs ≥30 days old (default) across every repo
-./Manage-OldPrs.ps1 -Mode fetch `
+./Manage-OldPRs-ADO.ps1 -Mode fetch `
                     -Organization https://dev.azure.com/contoso `
                     -Project Platform
 
 # Abandon the same set after review
-./Manage-OldPrs.ps1 -Mode abandon `
+./Manage-OldPRs-ADO.ps1 -Mode abandon `
                     -Organization https://dev.azure.com/contoso `
                     -Project Platform -Force
 ```
@@ -83,7 +83,7 @@ Results are exported to CSV, and live progress bars keep you informed during lon
 ### 1 – Review stale PRs in HR repos
 
 ```powershell
-./Manage-OldPrs.ps1 -Mode fetch `
+./Manage-OldPRs-ADO.ps1 -Mode fetch `
                     -Organization https://dev.azure.com/contoso `
                     -Project HRPlatform -RepoPrefix "hr-"
 ```
@@ -91,7 +91,7 @@ Results are exported to CSV, and live progress bars keep you informed during lon
 ### 2 – Close PRs > 60 days old in a legacy repo
 
 ```powershell
-./Manage-OldPrs.ps1 -Mode abandon `
+./Manage-OldPRs-ADO.ps1 -Mode abandon `
                     -Organization https://dev.azure.com/contoso `
                     -Project Infra -Repository "legacy-api" `
                     -OlderThanDays 60 -Force
@@ -103,7 +103,7 @@ Results are exported to CSV, and live progress bars keep you informed during lon
 # azure-pipelines.yml
 - task: PowerShell@2
   inputs:
-    filePath: scripts/Manage-OldPrs.ps1
+    filePath: scripts/Manage-OldPRs-ADO.ps1
     arguments: >
       -Mode abandon
       -Organization $(System.CollectionUri)
