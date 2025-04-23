@@ -46,18 +46,6 @@ Results are exported to CSV, and live progress bars keep you informed during lon
 
 ---
 
-## Installation
-
-```bash
-# Clone or copy the script into your repo / scripts folder
-git clone https://github.com/<org>/<repo>.git
-cd <repo>/scripts
-```
-
-No further setup—dependencies are auto-checked and installed at runtime.
-
----
-
 ## Quick Start
 
 ```powershell
